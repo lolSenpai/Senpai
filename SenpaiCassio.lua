@@ -59,9 +59,9 @@ ITM = SenpaiCS.addItem(SubMenu.new("Item"))
 	QSSSeraph = ITM.addItem(MenuSlider.new("if My Health % use Seraph", 70, 1, 100, 1))
 
 MSC = SenpaiCS.addItem(SubMenu.new("Misc"))
-	ERnd = MSC.addItem(MenuBool.new("Use E Humanizer",true))	
+	ERnd = MSC.addItem(MenuBool.new("Use E Humanizer",false))	
 	ctIG = MSC.addItem(MenuBool.new("Auto Ignite",true))
-	autoLVL = MSC.addItem(MenuBool.new("Auto Level-up",true))			
+	autoLVL = MSC.addItem(MenuBool.new("Auto Level-up",false))			
 	KSQ = MSC.addItem(MenuBool.new("KillSteal with Q",true))
 	KSE = MSC.addItem(MenuBool.new("KillSteal with E",true))	
 	KSR = MSC.addItem(MenuBool.new("KillSteal with R",true))
@@ -277,7 +277,7 @@ function Cassiopeia:castR()
 	local target = GetTarget(825,DAMAGE_MAGIC)
 	if not target then return end
 
-	if IsInDistance(target,25) and CANR then
+	if IsInDistance(target,825) and CANR then
 		local RPred = GetPredictionForPlayer(GetOrigin(myHero),target,GetMoveSpeed(target),math.huge,550,800,180,false,true)		
 		if CANR and ValidTarget(target, 825) and RPred.HitChance == 1 then
 			CastSkillShot(_R,RPred.PredPos.x,RPred.PredPos.y,RPred.PredPos.z)				 
